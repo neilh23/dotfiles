@@ -1,0 +1,2 @@
+EXCLUDES="*setup.sh README.md LICENSE .gitignore"
+SYMLINK_DIRS="vim"
