@@ -11,7 +11,7 @@ else
 fi
 
 echo "Updating plugins ..."
-vim +PluginInstall +qall
+vim +PluginUpdate +qall
 
 echo "Cleaning up plugins ..."
 vim +PluginClean +qall
