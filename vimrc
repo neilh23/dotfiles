@@ -14,6 +14,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Allow repeating plugin maps with .
+Plugin 'tpope/vim-repeat'
+
+" change surrounding quotes etc
+Plugin 'tpope/vim-surround'
+
+" http://vimawesome.com/plugin/easymotion
+" TODO - go through configuration ...
+Plugin 'Lokaltog/vim-easymotion'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -30,7 +40,6 @@ Plugin 'Raimondi/delimitMate'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'bling/vim-airline'
 
 Plugin 'scrooloose/syntastic'
 
@@ -38,10 +47,14 @@ Plugin 'tomasr/molokai'
 "Plugin 'humiaozuzu/TabBar'
 
 Plugin 'xolox/vim-misc'
+" https://github.com/xolox/vim-easytags
+" requires exuberant-ctags to be installed
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 
 Plugin 'kien/ctrlp.vim'
+
+Plugin 'tpope/vim-rails'
 
 Plugin 'vim-perl/vim-perl'
 Plugin 'vim-ruby/vim-ruby'
@@ -50,6 +63,7 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 
 Plugin 'maksimr/vim-jsbeautify'
+
 
 
 
@@ -135,15 +149,11 @@ else
 
 endif " has("autocmd")
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-	 	\ | wincmd p | diffthis
-
 set expandtab
 set shiftwidth=2
 set tabstop=4
 set smartindent
+set breakindent
 set mouse=
 
 " show matching brackets
@@ -167,6 +177,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
+" default java checker (javac) takes aaaaaages
+let g:syntastic_java_checkers          = ['checkstyle']
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
@@ -185,12 +197,12 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 
-let g:airline#extensions#tabline#enabled = 1
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 " To have NERDTree always open on startup
 let g:nerdtree_tabs_open_on_console_startup = 0
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 let delimitMate_expand_cr = 1
 augroup mydelimitMate
