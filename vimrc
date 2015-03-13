@@ -20,6 +20,9 @@ Plugin 'tpope/vim-repeat'
 " change surrounding quotes etc
 Plugin 'tpope/vim-surround'
 
+" auto-detect indentation in current file
+Plugin 'tpope/vim-sleuth'
+
 " http://vimawesome.com/plugin/easymotion
 " TODO - go through configuration ...
 Plugin 'Lokaltog/vim-easymotion'
@@ -55,17 +58,16 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
 
 Plugin 'vim-perl/vim-perl'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'chrisbra/csv.vim'
 
 Plugin 'maksimr/vim-jsbeautify'
-
-
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -226,6 +228,9 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" for xml
+autocmd FileType xml noremap <buffer> <c-f> :% ! tidy -utf8 -xml -w 180 -i -c -q -asxml <cr>
 
 if has("gui_running")
   " GUI is running or is about to start.
