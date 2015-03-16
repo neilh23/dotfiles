@@ -35,7 +35,7 @@ Plugin 'tpope/vim-fugitive'
 " http://www.vim.org/scripts/script.php?script_id=3252
 Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 
 " insert mode auto-completion for quotes, parenthesis etc
 " https://github.com/Raimondi/delimitMate
@@ -66,6 +66,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'chrisbra/csv.vim'
+Plugin 'elzr/vim-json'
 
 Plugin 'maksimr/vim-jsbeautify'
 
@@ -155,7 +156,7 @@ set expandtab
 set shiftwidth=2
 set tabstop=4
 set smartindent
-set breakindent
+"set breakindent
 set mouse=
 
 " show matching brackets
@@ -231,6 +232,17 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " for xml
 autocmd FileType xml noremap <buffer> <c-f> :% ! tidy -utf8 -xml -w 180 -i -c -q -asxml <cr>
+
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+""  autocmd FileType json set foldmethod=syntax
+augroup END
 
 if has("gui_running")
   " GUI is running or is about to start.
