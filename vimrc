@@ -244,6 +244,8 @@ augroup json_autocmd
 ""  autocmd FileType json set foldmethod=syntax
 augroup END
 
+au! BufRead,BufNewFile Berksfile set filetype=ruby
+
 if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window (for an alternative on Windows, see simalt below).
