@@ -54,13 +54,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export EDITOR=vim
-export VISUAL=vim
-export GIT_EDITOR=vim
-
-export PS1="\u@\h \w> "'\033]2;'"\u@\h \w"'\007'
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
