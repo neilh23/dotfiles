@@ -70,6 +70,8 @@ Plugin 'elzr/vim-json'
 
 Plugin 'maksimr/vim-jsbeautify'
 
+Plugin 'vim-scripts/Vim-R-plugin'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -246,6 +248,7 @@ augroup json_autocmd
 augroup END
 
 au! BufRead,BufNewFile Berksfile set filetype=ruby
+au! BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 if has("gui_running")
   " GUI is running or is about to start.
