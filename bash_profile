@@ -21,4 +21,10 @@ export HISTIGNORE='ls:pwd:date:exit:logout: *:history:pwd:kill*:rm*'
 PWSAFE_IGNORE=parcellite
 export PWSAFE_IGNORE
 
+if [ -d ~/.bash/completions ]; then
+  for c in ~/.bash/completions/*; do
+    source $c
+  done
+fi
+
 [ -f ~/.bash_local ] && source ~/.bash_local
