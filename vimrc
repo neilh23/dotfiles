@@ -161,6 +161,13 @@ set smartindent
 "set breakindent
 set mouse=
 
+" Keep permanent undo info! :-)
+set undofile                " Save undo's after file closes
+set undodir=~/.vim/undo " where to save undo histories - need to do mkdir to get it work
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+silent !mkdir -p ~/.vim/undo
+
 " show matching brackets
 autocmd FileType perl set showmatch
 
