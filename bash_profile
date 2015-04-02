@@ -2,7 +2,7 @@ export EDITOR=vim
 export VISUAL=vim
 export GIT_EDITOR=vim
 
-export PS1="\u@\h \w> "'\033]2;'"\u@\h \w"'\007'
+export PS1="\u@\h \w> \\["'\033]2;'"\u@\h \w"'\007\]'
 
 #handle £ signs in java source code ...
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
