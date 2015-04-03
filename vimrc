@@ -71,6 +71,9 @@ Plugin 'elzr/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 
 Plugin 'vim-scripts/Vim-R-plugin'
+ 
+Plugin 'Align'
+Plugin 'SQLUtilities'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -159,7 +162,6 @@ set shiftwidth=2
 set tabstop=4
 set smartindent
 "set breakindent
-set mouse=
 
 " Keep permanent undo info! :-)
 set undofile                " Save undo's after file closes
@@ -239,6 +241,9 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" for sql
+autocmd FileType sql noremap <buffer> <c-f> :% SQLUFormatter<cr>
 
 " for xml
 autocmd FileType xml noremap <buffer> <c-f> :% ! tidy -utf8 -xml -w 180 -i -c -q -asxml <cr>
