@@ -22,8 +22,16 @@ PWSAFE_IGNORE=parcellite
 export PWSAFE_IGNORE
 
 if [ -d ~/.bash/completions ]; then
+  GLOBIGNORE="*~":"*/tags"
   for c in ~/.bash/completions/*; do
-    source $c
+    [ -f $c ] && source $c
+  done
+fi
+
+if [ -d ~/.bash/modules ]; then
+  GLOBIGNORE="*~":"*/tags"
+  for c in ~/.bash/modules/*; do
+    [ -f $c ] && source $c
   done
 fi
 
