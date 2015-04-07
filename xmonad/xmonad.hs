@@ -9,10 +9,12 @@ import System.IO
 
 import qualified XMonad.StackSet as W
  
+-- use 'xprop' to get the class information from a window
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "Gimp-2.6"      --> doFloat
     , className =? "Ekiga"      --> doFloat
+    , className =? "Skype"      --> doFloat
     , title =? "ALSA Mixer"	--> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore

@@ -1,5 +1,8 @@
 if [ -f ~/wallpaper.jpeg ]; then
   feh --bg-scale ~/wallpaper.jpeg
+elif [ -d ~/.wallpaper ]; then
+  shopt -s nullglob
+  feh --bg-scale $( ls ~/.wallpaper/*.{jpg,jpeg,png,gif} | shuf -n 1 )
 fi
 
 killall xmobar
