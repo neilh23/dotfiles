@@ -1,0 +1,6 @@
+if [ -f ~/wallpaper.jpeg ]; then
+  feh --bg-scale ~/wallpaper.jpeg
+fi
+
+killall xmobar
+xmobar &

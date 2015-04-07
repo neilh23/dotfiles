@@ -1,0 +1,26 @@
+Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Network "p4p1" ["-L","0","-H","32",
+                                          "--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+            , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+            , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% } { %cpu% | %memory% * %swap% | %p4p1% <fc=#ff2c00>%date%</fc>"
+       }

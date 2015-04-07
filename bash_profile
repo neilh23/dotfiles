@@ -36,5 +36,3 @@ if [ -d ~/.bash/modules ]; then
 fi
 
 [ -f ~/.bash_local ] && source ~/.bash_local
-
-[ -f ~/.ssh-agent ] && source ~/.ssh-agent
