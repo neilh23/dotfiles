@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.UpdatePointer
 import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -19,13 +20,10 @@ import System.IO
 
 import qualified XMonad.StackSet as W
 
-myLayout = avoidStruts (
-    Tall 1 (3/100) (1/2) |||
-    Mirror (Tall 1 (3/100) (1/2)) |||
-    Full |||
-    spiral (6/7)) |||
+myLayout = avoidStruts (Tall 1 (3/100) (34/55)) ||| -- approx of golden ratio ;-)
     noBorders (fullscreenFull Full)
- 
+    -- spiral (6/7)
+
 -- use 'xprop' to get the class information from a window
 myManageHook = composeAll
     [ className =? "Gimp"           --> doFloat
@@ -48,6 +46,7 @@ myConfig = gnomeConfig {
     , borderWidth = 1
     , layoutHook  = smartBorders $ myLayout
     , startupHook = execScriptHook "startup"
+    , logHook     = updatePointer (Relative 0.5 0.5)
     , modMask     = mod4Mask     -- Rebind Mod to the Windows key
     , terminal    = "terminator"
     } `additionalKeys`
