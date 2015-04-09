@@ -5,5 +5,7 @@ elif [ -d ~/.wallpaper ]; then
   feh --bg-scale $( ls ~/.wallpaper/*.{jpg,jpeg,png,gif} | shuf -n 1 )
 fi
 
+xscreensaver 2>&- &
+
 killall xmobar
 xmobar &

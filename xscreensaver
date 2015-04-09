@@ -1,0 +1,8 @@
+lock: true
+timeout: 3
+lockTimeout: 5
+dpmsEnabled: true
+dpmsSuspend: 15
+dpmsOff: 20
+splash: false
+fade: false
