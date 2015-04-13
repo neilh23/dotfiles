@@ -12,3 +12,10 @@ set colored-stats on
 # Edit with Vi keybindings
 set editing-mode vi
 set keymap vi
+# I know Home/End do this, but ...
+#
+set keymap vi-insert
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+"\e[1;5C": forward-word   # ctrl + right
+"\e[1;5D": backward-word  # ctrl + left"
