@@ -36,3 +36,6 @@ if [ -d ~/.bash/modules ]; then
 fi
 
 [ -f ~/.bash_local ] && source ~/.bash_local
+
+# increase Berkshelf timeout
+export SOLVE_TIMEOUT=120
