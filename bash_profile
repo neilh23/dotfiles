@@ -35,4 +35,6 @@ if [ -d ~/.bash/modules ]; then
   done
 fi
 
+export LESS="-R"
+
 [ -f ~/.bash_local ] && source ~/.bash_local

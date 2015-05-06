@@ -5,6 +5,11 @@ case "$1" in
         extension-handler "$1"
         pandoc -s -f markdown -t man "$1"|groff -T utf8 -man -
         ;;
+    *.java|*.c|*.pl|*.pm|*.rb|*.sql|*.sh|*.cpp|*.cc|*.h|*.xml|*.hs|*.html|*.css|*.js)
+        command -v pygmentize 1>&- || exit 1
+        extension-handler "$1"
+        pygmentize "$1"
+        ;;
     *)
         # We don't handle this format.
         exit 1
