@@ -39,3 +39,6 @@ export LESS="-R x 4"
 export SAL_USE_VCLPLUGIN=gen
 
 [ -f ~/.bash_local ] && source ~/.bash_local
+
+# increase Berkshelf timeout
+export SOLVE_TIMEOUT=120
