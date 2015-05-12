@@ -35,6 +35,7 @@ if [ -d ~/.bash/modules ]; then
   done
 fi
 
-export LESS="-R"
+export LESS="-R x 4"
+export SAL_USE_VCLPLUGIN=gen
 
 [ -f ~/.bash_local ] && source ~/.bash_local
