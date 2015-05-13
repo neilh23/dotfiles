@@ -7,6 +7,8 @@ set nocompatible
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
+set path+=/usr/include/alsa/
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -101,11 +103,15 @@ endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
+set backup		" keep a backup file
+set backupdir=~/.vim/backup
+
+" from http://vim.wikia.com/wiki/Keep_incremental_backups_of_edited_files
+let myvar = strftime("%F_%H%M%S")
+let myvar = "set backupext=_".myvar
+execute myvar
+
+set directory=~/.vim/tmp " Swap file directory
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -168,7 +174,11 @@ set undofile                " Save undo's after file closes
 set undodir=~/.vim/undo " where to save undo histories - need to do mkdir to get it work
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+silent !mkdir -p ~/.vim/tmp
 silent !mkdir -p ~/.vim/undo
+silent !mkdir -p ~/.vim/backup
+" don't keep backups over a month ...
+silent !find ~/.vim/backup/ -ctime +30 -delete
 
 " show matching brackets
 autocmd FileType perl set showmatch
@@ -194,6 +204,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers          = ['rubocop']
 " default java checker (javac) takes aaaaaages
 let g:syntastic_java_checkers          = ['checkstyle']
+
+" let g:syntastic_c_checkers          = ['gcc', 'splint']
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
