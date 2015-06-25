@@ -6,12 +6,16 @@ case "$1" in
         pandoc -s -f markdown -t man "$1"|groff -T utf8 -man -
         ;;
     # TODO: can generate list with:
-    # pygmentize -L lexers | sed -n 's/^.*(filenames \(.*\))/\1/p' | tr ',' '\n' | sed 's/\s\+//' | sort | uniq
+    # pygmentize -L lexers | sed -n 's/^.*(filenames \(.*\))/\1/p' | tr ',' '\n' | sed 's/\s\+//' | grep -v '^\s*$' | sort | uniq
     *.java|*.c|*.pl|*.pm|*.rb|*.sql|*.sh|*.cpp|*.cc|*.h|*.go|*.xml|*.hs|*.py|*.html|*.css|*.js|*.json|*.wsdl|*.sh|*.bash|*bashrc|*profile|*vimrc)
         # pygmentize -L styles to list styles
         command -v pygmentize -S friendly 1>&- || exit 1
         extension-handler "$1"
         pygmentize "$1"
+        ;;
+    *.gpg)
+        # TODO: could apply this script again to underlying file ...
+        gpg -d "$1"
         ;;
     *)
         # We don't handle this format.

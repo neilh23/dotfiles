@@ -1,9 +1,10 @@
 import XMonad
 import XMonad.Actions.UpdatePointer
-import XMonad.Config.Gnome
+import XMonad.Config.Xfce
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.Script
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Grid
@@ -30,6 +31,7 @@ myManageHook = composeAll
     , className =? "Gimp-2.6"       --> doFloat
     , className =? "Msgcompose"     --> doCenterFloat
     , className =? "Ekiga"          --> doFloat
+    , className =? "Sflphone"       --> doFloat
     , className =? "Skype"          --> doFloat
     , title     =? "Volume Control" --> doFloat
     , resource  =? "desktop_window" --> doIgnore
@@ -40,7 +42,7 @@ myWorkspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
 
 main = xmonad =<< xmobar myConfig
  
-myConfig = gnomeConfig {
+myConfig = xfceConfig {
     manageHook    = manageDocks <+> myManageHook -- make sure to include myManageHook definition from above
                                 <+> manageHook defaultConfig
     , borderWidth = 1
@@ -48,7 +50,7 @@ myConfig = gnomeConfig {
     , startupHook = execScriptHook "startup"
     , logHook     = updatePointer (Relative 0.5 0.5)
     , modMask     = mod4Mask     -- Rebind Mod to the Windows key
-    , terminal    = "terminator"
+    , terminal    = "terminator" -- "terminator"
     } `additionalKeys`
     [ ((mod4Mask, xK_a), spawn "pavucontrol")
     , ((mod4Mask, xK_p), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
@@ -56,5 +58,7 @@ myConfig = gnomeConfig {
     , ((mod4Mask, xK_f), spawn "pcmanfm")
     , ((mod4Mask, xK_c), spawn "google-chrome")
     , ((mod4Mask, xK_z), spawn "xscreensaver-command -lock")
+    , ((mod4Mask .|. shiftMask, xK_z), spawn "ndh_suspend")
+    , ((mod4Mask .|. shiftMask, xK_q), spawn "xfce4-session-logout")
     , ((mod1Mask, xK_Tab), windows W.focusDown)
     ]

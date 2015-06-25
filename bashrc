@@ -30,8 +30,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# Load RVM, if you are using it
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -75,3 +73,6 @@ fi
 if [ -f ~/.bash_local ]; then
   . ~/.bash_local
 fi
+
+# Load RVM, if you are using it
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

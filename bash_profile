@@ -7,11 +7,6 @@ export PS1="\u@\h \w> \\["'\033]2;'"\u@\h \w"'\007\]'
 #handle £ signs in java source code ...
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
-if [[ -s ~/.rvm/scripts/rvm ]]; then
-  . ~/.rvm/scripts/rvm # This loads RVM into a shell session.
-  export PATH=~/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
-
 if [[ -d ~/bin ]]; then
   export PATH=~/bin:${PATH}
 fi
@@ -40,5 +35,14 @@ export SAL_USE_VCLPLUGIN=gen
 
 [ -f ~/.bash_local ] && source ~/.bash_local
 
+if [[ -s ~/.rvm/scripts/rvm ]]; then
+  . ~/.rvm/scripts/rvm # This loads RVM into a shell session.
+  export PATH=~/bin:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+fi
+
 # increase Berkshelf timeout
 export SOLVE_TIMEOUT=120
+
+if [ -f ~/.ssh-agent ]; then
+  . ~/.ssh-agent
+fi

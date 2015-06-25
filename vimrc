@@ -191,9 +191,17 @@ autocmd FileType perl set autowrite
 set background=dark
 colorscheme molokai
 
+if &diff
+  colorscheme evening
+endif
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"use a strong cipher for encrypting files,
+"default is 'zip'
+setlocal cm=blowfish2
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

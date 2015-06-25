@@ -10,7 +10,7 @@ Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
        , hideOnStart = False
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Network "p4p1" ["-L","0","-H","32",
+       , commands = [ Run Network "eth0" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
@@ -22,5 +22,5 @@ Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% } { %cpu% | %memory% * %swap% | %p4p1% <fc=#ff2c00>%date%</fc>"
+       , template = "%StdinReader% } { %cpu% | %memory% * %swap% | %eth0% <fc=#ff2c00>%date%</fc>"
        }
