@@ -41,7 +41,7 @@ Plugin 'L9'
 
 " insert mode auto-completion for quotes, parenthesis etc
 " https://github.com/Raimondi/delimitMate
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -76,6 +76,8 @@ Plugin 'vim-scripts/Vim-R-plugin'
  
 Plugin 'Align'
 Plugin 'SQLUtilities'
+
+Plugin 'freitass/todo.txt-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -163,7 +165,6 @@ else
 
 endif " has("autocmd")
 
-set expandtab
 set shiftwidth=2
 set tabstop=4
 set smartindent
@@ -212,6 +213,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers          = ['rubocop']
 " default java checker (javac) takes aaaaaages
 let g:syntastic_java_checkers          = ['checkstyle']
+
+let g:syntastic_javascript_checkers          = ['eslint']
 
 " let g:syntastic_c_checkers          = ['gcc', 'splint']
 
@@ -295,3 +298,7 @@ else
     set columns=100
   endif
 endif
+
+" set this at the end, because something seemed to be overriding it ...
+" I hate tabs!
+set expandtab
