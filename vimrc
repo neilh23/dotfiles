@@ -27,15 +27,12 @@ Plugin 'tpope/vim-sleuth'
 
 " http://vimawesome.com/plugin/easymotion
 " TODO - go through configuration ...
-Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'Lokaltog/vim-easymotion'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 " http://www.vim.org/scripts/script.php?script_id=3252
-Plugin 'L9'
+" Plugin 'L9'
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
 
@@ -43,8 +40,8 @@ Plugin 'L9'
 " https://github.com/Raimondi/delimitMate
 " Plugin 'Raimondi/delimitMate'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
 
 Plugin 'scrooloose/syntastic'
 
@@ -54,15 +51,15 @@ Plugin 'tomasr/molokai'
 Plugin 'xolox/vim-misc'
 " https://github.com/xolox/vim-easytags
 " requires exuberant-ctags to be installed
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
+" Plugin 'xolox/vim-easytags'
+" Plugin 'majutsushi/tagbar'
 
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
+" Plugin 'tpope/vim-rails'
+" Plugin 'tpope/vim-bundler'
 
-Plugin 'vim-perl/vim-perl'
+" Plugin 'vim-perl/vim-perl'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
@@ -72,12 +69,15 @@ Plugin 'elzr/vim-json'
 
 Plugin 'maksimr/vim-jsbeautify'
 
-Plugin 'vim-scripts/Vim-R-plugin'
+" Plugin 'vim-scripts/Vim-R-plugin'
  
 Plugin 'Align'
-Plugin 'SQLUtilities'
+" Plugin 'SQLUtilities'
 
-Plugin 'freitass/todo.txt-vim'
+" Plugin 'freitass/todo.txt-vim'
+
+" wrapper for the silver searcher ('ag') plugin for vim
+Plugin 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -215,6 +215,11 @@ let g:syntastic_ruby_checkers          = ['rubocop']
 let g:syntastic_java_checkers          = ['checkstyle']
 
 let g:syntastic_javascript_checkers          = ['eslint']
+
+" let g:syntastic_perl_checkers=['perl', 'perlcritic']
+let g:syntastic_perl_checkers=['perl']
+
+let g:syntastic_enable_perl_checker = 1
 
 " let g:syntastic_c_checkers          = ['gcc', 'splint']
 

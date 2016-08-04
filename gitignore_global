@@ -1,3 +1,7 @@
 *.tmp
 *~
 tags
+foo
+foo.*
+deploy.sh
+deploy-live.sh
