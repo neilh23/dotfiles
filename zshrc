@@ -96,3 +96,35 @@ bindkey 'OF' end-of-line
 # Control-R for search history
 bindkey '^R' history-incremental-search-backward
 
+export GOPATH=/home/nhowie/devel/gopath
+export PATH=${PATH}:${GOPATH}/bin
+
+CDPATH=~/:~/devel:$GOPATH/src/github.com:$GOPATH/src/code.google.com/p
+
+func dt() {
+  $*`date +%F`
+}
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+bindkey '^f' insert-last-word
+# alt-.
+bindkey '\e.' insert-last-word
+
+
+#function zle-line-init zle-keymap-select {
+#    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+#    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+#    zle reset-prompt
+#}
+
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+
+export KEYTIMEOUT=1
+
+export QMAKE=/usr/bin/qmake-qt5

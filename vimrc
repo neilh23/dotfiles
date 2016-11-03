@@ -16,6 +16,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'jceb/vim-orgmode'
+
+Plugin 'tpope/vim-speeddating'
+
+Plugin 'majutsushi/tagbar'
+
+Plugin 'taglist.vim'
+
 " Allow repeating plugin maps with .
 Plugin 'tpope/vim-repeat'
 
@@ -24,6 +32,9 @@ Plugin 'tpope/vim-surround'
 
 " auto-detect indentation in current file
 Plugin 'tpope/vim-sleuth'
+
+" golang
+Plugin 'fatih/vim-go'
 
 " http://vimawesome.com/plugin/easymotion
 " TODO - go through configuration ...
@@ -220,6 +231,12 @@ let g:syntastic_javascript_checkers          = ['eslint']
 let g:syntastic_perl_checkers=['perl']
 
 let g:syntastic_enable_perl_checker = 1
+
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['golint', 'govet', 'go']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+let g:syntastic_enable_go_checker = 1
 
 " let g:syntastic_c_checkers          = ['gcc', 'splint']
 
