@@ -5,3 +5,4 @@ foo
 foo.*
 deploy.sh
 deploy-live.sh
+.kitchen

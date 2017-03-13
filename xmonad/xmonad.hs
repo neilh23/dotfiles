@@ -42,23 +42,23 @@ myWorkspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
 
 main = xmonad =<< xmobar myConfig
  
+--   , logHook     = updatePointer (Relative 0.5 0.5)
+--    , ((mod4Mask .|. shiftMask, xK_z), spawn "ndh_suspend")
+--    , ((mod4Mask .|. shiftMask, xK_q), spawn "xfce4-session-logout")
 myConfig = xfceConfig {
     manageHook    = manageDocks <+> myManageHook -- make sure to include myManageHook definition from above
                                 <+> manageHook defaultConfig
     , borderWidth = 1
     , layoutHook  = smartBorders $ myLayout
     , startupHook = execScriptHook "startup"
-    , logHook     = updatePointer (Relative 0.5 0.5)
     , modMask     = mod4Mask     -- Rebind Mod to the Windows key
-    , terminal    = "terminator" -- "terminator"
+    , terminal    = "st -f Hack-14" -- "simple terminal"
     } `additionalKeys`
     [ ((mod4Mask, xK_a), spawn "pavucontrol")
     , ((mod4Mask, xK_p), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
     , ((mod4Mask, xK_v), spawn "gvim")
     , ((mod4Mask, xK_f), spawn "pcmanfm")
-    , ((mod4Mask, xK_c), spawn "google-chrome")
+    , ((mod4Mask, xK_c), spawn "chromium-browser")
     , ((mod4Mask, xK_z), spawn "xscreensaver-command -lock")
-    , ((mod4Mask .|. shiftMask, xK_z), spawn "ndh_suspend")
-    , ((mod4Mask .|. shiftMask, xK_q), spawn "xfce4-session-logout")
     , ((mod1Mask, xK_Tab), windows W.focusDown)
     ]
