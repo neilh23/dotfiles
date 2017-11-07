@@ -84,6 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+alias p="xclip -i -selection clipboard"
+
 bindkey -v
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -128,3 +130,5 @@ bindkey '\e.' insert-last-word
 export KEYTIMEOUT=1
 
 export QMAKE=/usr/bin/qmake-qt5
+
+alias dnf='sudo dnf'

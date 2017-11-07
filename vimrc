@@ -24,6 +24,8 @@ Plugin 'majutsushi/tagbar'
 
 Plugin 'taglist.vim'
 
+Plugin 'benmills/vimux'
+
 " Allow repeating plugin maps with .
 Plugin 'tpope/vim-repeat'
 
@@ -51,9 +53,6 @@ Plugin 'fatih/vim-go'
 " https://github.com/Raimondi/delimitMate
 " Plugin 'Raimondi/delimitMate'
 
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'jistr/vim-nerdtree-tabs'
-
 Plugin 'scrooloose/syntastic'
 
 Plugin 'tomasr/molokai'
@@ -78,7 +77,11 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
 
-Plugin 'maksimr/vim-jsbeautify'
+"Plugin 'maksimr/vim-jsbeautify'
+
+" Plugin 'w0rp/ale'
+Plugin 'junegunn/fzf'
+
 
 " Plugin 'vim-scripts/Vim-R-plugin'
  
@@ -208,7 +211,7 @@ if &diff
 endif
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 "use a strong cipher for encrypting files,
@@ -220,7 +223,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
+let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
 let g:syntastic_ruby_checkers          = ['rubocop']
 " default java checker (javac) takes aaaaaages
 let g:syntastic_java_checkers          = ['checkstyle']
@@ -324,3 +327,27 @@ endif
 " set this at the end, because something seemed to be overriding it ...
 " I hate tabs!
 set expandtab
+
+
+" nicked from https://github.com/Morantron/dotfiles/blob/master/vimrc#L229
+function! SendToNearestPane(type, ...)
+  let reg_save = @@
+
+  "if exists("g:VimuxRunnerIndex") "use this to open vimux runner
+  "inteligently
+
+  if a:0  " Invoked from Visual mode, use gv command.
+    silent exe "normal! gvy"
+  elseif a:type == 'line'
+    silent exe "normal! '[V']y"
+  else
+    silent exe "normal! :%y"
+  endif
+
+  call VimuxSendText(@@)
+
+  let @@ = reg_save
+endfunction
+
+nnoremap \\ :<C-U>call SendToNearestPane(1)<CR>
+vmap \\ :<C-U>call SendToNearestPane(visualmode(), 1)<CR>
