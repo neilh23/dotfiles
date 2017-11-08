@@ -55,7 +55,8 @@ Plugin 'fatih/vim-go'
 
 Plugin 'scrooloose/syntastic'
 
-Plugin 'tomasr/molokai'
+" Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/dante.vim'
 "Plugin 'humiaozuzu/TabBar'
 
 Plugin 'xolox/vim-misc'
@@ -204,7 +205,8 @@ autocmd FileType perl set errorformat=%f:%l:%m
 autocmd FileType perl set autowrite
 
 set background=dark
-colorscheme molokai
+"colorscheme molokai
+colorscheme dante
 
 if &diff
   colorscheme evening
